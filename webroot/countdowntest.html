@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure CSS Circular Progress Bar</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;600&display=swap" rel="stylesheet"> 
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #010101;
+    font-family: 'Dosis', sans-serif;
+    font-size: 14px;
+  }
+  .circleBox{
+    position: relative;
+    width: 320px;
+    height: 320px;
+    /* border-radius: 50%; */
+    background: #002b36;
+    z-index: 1000;
+  }
+  .circleBox .number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .circleBox .number h2{
+    color: #b60205;
+    font-weight: 600;
+    font-size: 10em;
+  }
+  .circleBox svg {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    z-index: 1000;
+    transform: rotate(-90deg);
+  }
+  .circleBox svg circle{
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #3d1011;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(10px,10px);
+  }
+  .circleBox svg circle:nth-child(2){
+    stroke-dasharray: 942;
+    stroke-dashoffset: 942;
+    stroke: #b60205;
+  }
+
+</style>
+</head>
+
+<body>
+  
+  <div class="circleBox">
+    <svg>
+      <circle cx="150" cy="150" r="150"></circle>
+      <circle cx="150" cy="150" r="150"></circle>
+    </svg>
+    <div class="number">
+      <h2>-</h2>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // var STROKE_OFFSET = 440;
+    var STROKE_OFFSET = 942; // = <circle>.r * 2 * PI -> 150 * 2 * 3.14 = 942
+    var TICKS_PER_SECOND = 10;
+
+    var interval = 1000 / TICKS_PER_SECOND;
+    var ticks = 60 * TICKS_PER_SECOND;
+    var i = ticks;
+    var x = setInterval(function (){
+      i--;
+      if (i < 0) i = ticks;
+      document.querySelector('.circleBox h2').innerHTML = (Math.floor(i/TICKS_PER_SECOND)+1) + "s";
+      document.querySelector('.circleBox circle:nth-child(2)').setAttribute('style','stroke-dashoffset:'+(STROKE_OFFSET - (STROKE_OFFSET * i) / ticks));
+    }, interval);
+</script>
+
+
+</body>
+</html>

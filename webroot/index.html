@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#002b36">
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="lib/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link href="lib/fontawesome-free-5.12.0-web/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;600&display=swap" rel="stylesheet"> 
+
+    <title>Trainings-Timer</title>
+  </head>
+
+  <body>
+    <main role="main" id="content" class="container">
+      <h1>Trainings-Timer</h1>
+
+      <div id="timerBox" class="stateActive">
+        <div id="overlay"><i class="fas fa-pause"></i></div>
+        <div id="timer"></div>
+        <div id="state"></div>
+      </div>
+      <!-- <div id="timerData"></div> -->
+
+      <form>
+        <div id="timerConfigContainer">
+          <div class="timerConfigBox" id="timerConfigBox-active">
+            <div class="timerConfigIconBox"><i id="tc-active-up-1" class="fas fa-angle-up"></i> <i id="tc-active-up-10" class="fas fa-angle-double-up"></i></div>
+            <!-- <div>Training: <input id="tc-active-value" value="" type="text" maxlength="3" disabled/>s</div> -->
+            <div>Training: <div class="timerConfigValue" id="tc-active-value"></div> s</div>
+            <div class="timerConfigIconBox"><i id="tc-active-down-1" class="fas fa-angle-down"></i> <i id="tc-active-down-10" class="fas fa-angle-double-down"></i></div>
+          </div>
+          <div style="font-size: 3em;">/</div>
+          <div class="timerConfigBox" id="timerConfigBox-pause">
+            <div class="timerConfigIconBox"><i id="tc-pause-up-1" class="fas fa-angle-up"></i> <i id="tc-pause-up-10" class="fas fa-angle-double-up"></i></div>
+            <!-- <div>Pause: <input id="tc-pause-value" value="" type="text" maxlength="3" disabled/>s</div> -->
+            <div>Pause: <div class="timerConfigValue" id="tc-pause-value"></div> s</div>
+            <div class="timerConfigIconBox"><i id="tc-pause-down-1" class="fas fa-angle-down"></i> <i id="tc-pause-down-10" class="fas fa-angle-double-down"></i></div>
+          </div>
+        </div>
+      </form>
+      <div id="buttonBox">
+        <button id="b-pause" type="button" class="btn btn-tt"><i class="fas fa-pause"></i></button>
+        <button id="b-reset" type="button" class="btn btn-tt"><i class="fas fa-undo"></i></button>
+        <button id="b-mute" type="button" class="btn btn-tt"><i class="fas fa-volume-up"></i></button>
+      </div>
+    </main>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+  <script src="lib/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+  </body>
+</html>
